@@ -160,7 +160,7 @@
     __weak typeof(self) weakSelf = self;
     
     [self actionSheetWithLibrary:^{
-        [_imagePicker libraryPhotoWithController:self cropSize:CGSizeMake(200, 200) imageScale:0 isCircular:true FormDataBlock:^(UIImage *image, ZYFormData *formData) {
+        [_imagePicker libraryPhotoWithController:self cropSize:CGSizeMake(200, 300) imageScale:0 isCircular:true FormDataBlock:^(UIImage *image, ZYFormData *formData) {
             __strong typeof(self) strongSelf = weakSelf;
             [(UIImageView *)ges.view setImage:image];
             strongSelf.lab6.text = [NSString stringWithFormat:@"%.1lf x %.1lf",

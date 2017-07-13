@@ -70,7 +70,7 @@
         
         // 设置_imageView的位置大小
         
-        CGRect frame ;
+        CGRect frame = CGRectZero;
         CGFloat imgWidth;
         CGFloat imgHeight;
         
@@ -85,7 +85,7 @@
         
         frame.size.width = imgWidth;
         
-        frame.size.height =frame.size.width*(_image.size.height/_image.size.width);
+        frame.size.height = imgHeight;
         
         _imageView.frame = frame;
     }
@@ -177,17 +177,17 @@
 }
 - (void)scrollViewDidZoom:(UIScrollView *)scrollView {
     
-    CGFloat xcenter = scrollView.center.x , ycenter = scrollView.center.y;
+    CGFloat xcenter = scrollView.contentSize.width/2;
     
-    xcenter = scrollView.contentSize.width/2;
-    
-    ycenter = scrollView.contentSize.height/2;
+    CGFloat ycenter = scrollView.contentSize.height/2;
     
     [_imageView setCenter:CGPointMake(xcenter, ycenter)];
 }
 
 - (IBAction)dismiss:(id)sender {
-    [self.navigationController popViewControllerAnimated:true];
+    [self dismissViewControllerAnimated:true completion:nil];
+    // if pop to imagePickerController, the retake button and use photo button can't click; so ...
+    // [self.navigationController popViewControllerAnimated:true];
 }
 
 - (IBAction)select:(id)sender {
@@ -206,7 +206,9 @@
                              self.scrollView.contentOffset.y * _imageScale,
                              _cropSize.width * _imageScale,
                              _cropSize.height * _imageScale);
-    UIImage *cropImage = [UIImage imageWithCGImage:CGImageCreateWithImageInRect(image.CGImage, rect)];
+    CGImageRef imageRef = CGImageCreateWithImageInRect(image.CGImage, rect);
+    UIImage *cropImage = [UIImage imageWithCGImage:imageRef];
+    CGImageRelease(imageRef);
     
     // 圆形图片
     if (_isCircular) {
