@@ -1,0 +1,530 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		045E258A1F171E0A00F100CC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 045E25891F171E0A00F100CC /* main.m */; };
+		045E258D1F171E0A00F100CC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 045E258C1F171E0A00F100CC /* AppDelegate.m */; };
+		045E25901F171E0A00F100CC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045E258F1F171E0A00F100CC /* ViewController.m */; };
+		045E25931F171E0A00F100CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 045E25911F171E0A00F100CC /* Main.storyboard */; };
+		045E25951F171E0A00F100CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 045E25941F171E0A00F100CC /* Assets.xcassets */; };
+		045E25981F171E0A00F100CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 045E25961F171E0A00F100CC /* LaunchScreen.storyboard */; };
+		045E25A31F171E0A00F100CC /* ZYImagePickerDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 045E25A21F171E0A00F100CC /* ZYImagePickerDemoTests.m */; };
+		045E25AE1F171E0A00F100CC /* ZYImagePickerDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 045E25AD1F171E0A00F100CC /* ZYImagePickerDemoUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		045E259F1F171E0A00F100CC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 045E257D1F171E0A00F100CC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 045E25841F171E0A00F100CC;
+			remoteInfo = ZYImagePickerDemo;
+		};
+		045E25AA1F171E0A00F100CC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 045E257D1F171E0A00F100CC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 045E25841F171E0A00F100CC;
+			remoteInfo = ZYImagePickerDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		045E25851F171E0A00F100CC /* ZYImagePickerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZYImagePickerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		045E25891F171E0A00F100CC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		045E258B1F171E0A00F100CC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		045E258C1F171E0A00F100CC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		045E258E1F171E0A00F100CC /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		045E258F1F171E0A00F100CC /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		045E25921F171E0A00F100CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		045E25941F171E0A00F100CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		045E25971F171E0A00F100CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		045E25991F171E0A00F100CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		045E259E1F171E0A00F100CC /* ZYImagePickerDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZYImagePickerDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		045E25A21F171E0A00F100CC /* ZYImagePickerDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYImagePickerDemoTests.m; sourceTree = "<group>"; };
+		045E25A41F171E0A00F100CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		045E25A91F171E0A00F100CC /* ZYImagePickerDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZYImagePickerDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		045E25AD1F171E0A00F100CC /* ZYImagePickerDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYImagePickerDemoUITests.m; sourceTree = "<group>"; };
+		045E25AF1F171E0A00F100CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		045E25821F171E0A00F100CC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		045E259B1F171E0A00F100CC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		045E25A61F171E0A00F100CC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		045E257C1F171E0A00F100CC = {
+			isa = PBXGroup;
+			children = (
+				045E25871F171E0A00F100CC /* ZYImagePickerDemo */,
+				045E25A11F171E0A00F100CC /* ZYImagePickerDemoTests */,
+				045E25AC1F171E0A00F100CC /* ZYImagePickerDemoUITests */,
+				045E25861F171E0A00F100CC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		045E25861F171E0A00F100CC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				045E25851F171E0A00F100CC /* ZYImagePickerDemo.app */,
+				045E259E1F171E0A00F100CC /* ZYImagePickerDemoTests.xctest */,
+				045E25A91F171E0A00F100CC /* ZYImagePickerDemoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		045E25871F171E0A00F100CC /* ZYImagePickerDemo */ = {
+			isa = PBXGroup;
+			children = (
+				045E258B1F171E0A00F100CC /* AppDelegate.h */,
+				045E258C1F171E0A00F100CC /* AppDelegate.m */,
+				045E258E1F171E0A00F100CC /* ViewController.h */,
+				045E258F1F171E0A00F100CC /* ViewController.m */,
+				045E25911F171E0A00F100CC /* Main.storyboard */,
+				045E25941F171E0A00F100CC /* Assets.xcassets */,
+				045E25961F171E0A00F100CC /* LaunchScreen.storyboard */,
+				045E25991F171E0A00F100CC /* Info.plist */,
+				045E25881F171E0A00F100CC /* Supporting Files */,
+			);
+			path = ZYImagePickerDemo;
+			sourceTree = "<group>";
+		};
+		045E25881F171E0A00F100CC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				045E25891F171E0A00F100CC /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		045E25A11F171E0A00F100CC /* ZYImagePickerDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				045E25A21F171E0A00F100CC /* ZYImagePickerDemoTests.m */,
+				045E25A41F171E0A00F100CC /* Info.plist */,
+			);
+			path = ZYImagePickerDemoTests;
+			sourceTree = "<group>";
+		};
+		045E25AC1F171E0A00F100CC /* ZYImagePickerDemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				045E25AD1F171E0A00F100CC /* ZYImagePickerDemoUITests.m */,
+				045E25AF1F171E0A00F100CC /* Info.plist */,
+			);
+			path = ZYImagePickerDemoUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		045E25841F171E0A00F100CC /* ZYImagePickerDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 045E25B21F171E0A00F100CC /* Build configuration list for PBXNativeTarget "ZYImagePickerDemo" */;
+			buildPhases = (
+				045E25811F171E0A00F100CC /* Sources */,
+				045E25821F171E0A00F100CC /* Frameworks */,
+				045E25831F171E0A00F100CC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ZYImagePickerDemo;
+			productName = ZYImagePickerDemo;
+			productReference = 045E25851F171E0A00F100CC /* ZYImagePickerDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		045E259D1F171E0A00F100CC /* ZYImagePickerDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 045E25B51F171E0A00F100CC /* Build configuration list for PBXNativeTarget "ZYImagePickerDemoTests" */;
+			buildPhases = (
+				045E259A1F171E0A00F100CC /* Sources */,
+				045E259B1F171E0A00F100CC /* Frameworks */,
+				045E259C1F171E0A00F100CC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				045E25A01F171E0A00F100CC /* PBXTargetDependency */,
+			);
+			name = ZYImagePickerDemoTests;
+			productName = ZYImagePickerDemoTests;
+			productReference = 045E259E1F171E0A00F100CC /* ZYImagePickerDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		045E25A81F171E0A00F100CC /* ZYImagePickerDemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 045E25B81F171E0A00F100CC /* Build configuration list for PBXNativeTarget "ZYImagePickerDemoUITests" */;
+			buildPhases = (
+				045E25A51F171E0A00F100CC /* Sources */,
+				045E25A61F171E0A00F100CC /* Frameworks */,
+				045E25A71F171E0A00F100CC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				045E25AB1F171E0A00F100CC /* PBXTargetDependency */,
+			);
+			name = ZYImagePickerDemoUITests;
+			productName = ZYImagePickerDemoUITests;
+			productReference = 045E25A91F171E0A00F100CC /* ZYImagePickerDemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		045E257D1F171E0A00F100CC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = Daniel;
+				TargetAttributes = {
+					045E25841F171E0A00F100CC = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+					};
+					045E259D1F171E0A00F100CC = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 045E25841F171E0A00F100CC;
+					};
+					045E25A81F171E0A00F100CC = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 045E25841F171E0A00F100CC;
+					};
+				};
+			};
+			buildConfigurationList = 045E25801F171E0A00F100CC /* Build configuration list for PBXProject "ZYImagePickerDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 045E257C1F171E0A00F100CC;
+			productRefGroup = 045E25861F171E0A00F100CC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				045E25841F171E0A00F100CC /* ZYImagePickerDemo */,
+				045E259D1F171E0A00F100CC /* ZYImagePickerDemoTests */,
+				045E25A81F171E0A00F100CC /* ZYImagePickerDemoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		045E25831F171E0A00F100CC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				045E25981F171E0A00F100CC /* LaunchScreen.storyboard in Resources */,
+				045E25951F171E0A00F100CC /* Assets.xcassets in Resources */,
+				045E25931F171E0A00F100CC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		045E259C1F171E0A00F100CC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		045E25A71F171E0A00F100CC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		045E25811F171E0A00F100CC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				045E25901F171E0A00F100CC /* ViewController.m in Sources */,
+				045E258D1F171E0A00F100CC /* AppDelegate.m in Sources */,
+				045E258A1F171E0A00F100CC /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		045E259A1F171E0A00F100CC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				045E25A31F171E0A00F100CC /* ZYImagePickerDemoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		045E25A51F171E0A00F100CC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				045E25AE1F171E0A00F100CC /* ZYImagePickerDemoUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		045E25A01F171E0A00F100CC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 045E25841F171E0A00F100CC /* ZYImagePickerDemo */;
+			targetProxy = 045E259F1F171E0A00F100CC /* PBXContainerItemProxy */;
+		};
+		045E25AB1F171E0A00F100CC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 045E25841F171E0A00F100CC /* ZYImagePickerDemo */;
+			targetProxy = 045E25AA1F171E0A00F100CC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		045E25911F171E0A00F100CC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				045E25921F171E0A00F100CC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		045E25961F171E0A00F100CC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				045E25971F171E0A00F100CC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		045E25B01F171E0A00F100CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		045E25B11F171E0A00F100CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		045E25B31F171E0A00F100CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = ZYImagePickerDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Daniel.ZYImagePickerDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		045E25B41F171E0A00F100CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = ZYImagePickerDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Daniel.ZYImagePickerDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		045E25B61F171E0A00F100CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = ZYImagePickerDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Daniel.ZYImagePickerDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ZYImagePickerDemo.app/ZYImagePickerDemo";
+			};
+			name = Debug;
+		};
+		045E25B71F171E0A00F100CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = ZYImagePickerDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Daniel.ZYImagePickerDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ZYImagePickerDemo.app/ZYImagePickerDemo";
+			};
+			name = Release;
+		};
+		045E25B91F171E0A00F100CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = ZYImagePickerDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Daniel.ZYImagePickerDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = ZYImagePickerDemo;
+			};
+			name = Debug;
+		};
+		045E25BA1F171E0A00F100CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = ZYImagePickerDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Daniel.ZYImagePickerDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = ZYImagePickerDemo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		045E25801F171E0A00F100CC /* Build configuration list for PBXProject "ZYImagePickerDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				045E25B01F171E0A00F100CC /* Debug */,
+				045E25B11F171E0A00F100CC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		045E25B21F171E0A00F100CC /* Build configuration list for PBXNativeTarget "ZYImagePickerDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				045E25B31F171E0A00F100CC /* Debug */,
+				045E25B41F171E0A00F100CC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		045E25B51F171E0A00F100CC /* Build configuration list for PBXNativeTarget "ZYImagePickerDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				045E25B61F171E0A00F100CC /* Debug */,
+				045E25B71F171E0A00F100CC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		045E25B81F171E0A00F100CC /* Build configuration list for PBXNativeTarget "ZYImagePickerDemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				045E25B91F171E0A00F100CC /* Debug */,
+				045E25BA1F171E0A00F100CC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 045E257D1F171E0A00F100CC /* Project object */;
+}
