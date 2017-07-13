@@ -15,6 +15,11 @@
 		045E25981F171E0A00F100CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 045E25961F171E0A00F100CC /* LaunchScreen.storyboard */; };
 		045E25A31F171E0A00F100CC /* ZYImagePickerDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 045E25A21F171E0A00F100CC /* ZYImagePickerDemoTests.m */; };
 		045E25AE1F171E0A00F100CC /* ZYImagePickerDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 045E25AD1F171E0A00F100CC /* ZYImagePickerDemoUITests.m */; };
+		045E25D11F171E3D00F100CC /* UIImagePickerController+ZY.m in Sources */ = {isa = PBXBuildFile; fileRef = 045E25C51F171E3D00F100CC /* UIImagePickerController+ZY.m */; };
+		045E25D41F171E3D00F100CC /* ZYCropImageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045E25CB1F171E3D00F100CC /* ZYCropImageController.m */; };
+		045E25D51F171E3D00F100CC /* ZYCropImageController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 045E25CC1F171E3D00F100CC /* ZYCropImageController.xib */; };
+		045E25D81F171ED800F100CC /* ZYFormData.m in Sources */ = {isa = PBXBuildFile; fileRef = 045E25D71F171ED800F100CC /* ZYFormData.m */; };
+		045E25DB1F17200100F100CC /* ZYImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 045E25DA1F17200100F100CC /* ZYImagePicker.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +56,15 @@
 		045E25A91F171E0A00F100CC /* ZYImagePickerDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZYImagePickerDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		045E25AD1F171E0A00F100CC /* ZYImagePickerDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYImagePickerDemoUITests.m; sourceTree = "<group>"; };
 		045E25AF1F171E0A00F100CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		045E25C41F171E3D00F100CC /* UIImagePickerController+ZY.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImagePickerController+ZY.h"; sourceTree = "<group>"; };
+		045E25C51F171E3D00F100CC /* UIImagePickerController+ZY.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImagePickerController+ZY.m"; sourceTree = "<group>"; };
+		045E25CA1F171E3D00F100CC /* ZYCropImageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYCropImageController.h; sourceTree = "<group>"; };
+		045E25CB1F171E3D00F100CC /* ZYCropImageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYCropImageController.m; sourceTree = "<group>"; };
+		045E25CC1F171E3D00F100CC /* ZYCropImageController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZYCropImageController.xib; sourceTree = "<group>"; };
+		045E25D61F171ED800F100CC /* ZYFormData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYFormData.h; sourceTree = "<group>"; };
+		045E25D71F171ED800F100CC /* ZYFormData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYFormData.m; sourceTree = "<group>"; };
+		045E25D91F17200100F100CC /* ZYImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYImagePicker.h; sourceTree = "<group>"; };
+		045E25DA1F17200100F100CC /* ZYImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYImagePicker.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +95,7 @@
 		045E257C1F171E0A00F100CC = {
 			isa = PBXGroup;
 			children = (
+				045E25BB1F171E3D00F100CC /* ZYImagePicker */,
 				045E25871F171E0A00F100CC /* ZYImagePickerDemo */,
 				045E25A11F171E0A00F100CC /* ZYImagePickerDemoTests */,
 				045E25AC1F171E0A00F100CC /* ZYImagePickerDemoUITests */,
@@ -138,6 +153,22 @@
 				045E25AF1F171E0A00F100CC /* Info.plist */,
 			);
 			path = ZYImagePickerDemoUITests;
+			sourceTree = "<group>";
+		};
+		045E25BB1F171E3D00F100CC /* ZYImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				045E25D91F17200100F100CC /* ZYImagePicker.h */,
+				045E25DA1F17200100F100CC /* ZYImagePicker.m */,
+				045E25C41F171E3D00F100CC /* UIImagePickerController+ZY.h */,
+				045E25C51F171E3D00F100CC /* UIImagePickerController+ZY.m */,
+				045E25CA1F171E3D00F100CC /* ZYCropImageController.h */,
+				045E25CB1F171E3D00F100CC /* ZYCropImageController.m */,
+				045E25CC1F171E3D00F100CC /* ZYCropImageController.xib */,
+				045E25D61F171ED800F100CC /* ZYFormData.h */,
+				045E25D71F171ED800F100CC /* ZYFormData.m */,
+			);
+			path = ZYImagePicker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,6 +238,7 @@
 				TargetAttributes = {
 					045E25841F171E0A00F100CC = {
 						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = YT25KK5ZEJ;
 						ProvisioningStyle = Automatic;
 					};
 					045E259D1F171E0A00F100CC = {
@@ -246,6 +278,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				045E25D51F171E3D00F100CC /* ZYCropImageController.xib in Resources */,
 				045E25981F171E0A00F100CC /* LaunchScreen.storyboard in Resources */,
 				045E25951F171E0A00F100CC /* Assets.xcassets in Resources */,
 				045E25931F171E0A00F100CC /* Main.storyboard in Resources */,
@@ -273,8 +306,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				045E25D11F171E3D00F100CC /* UIImagePickerController+ZY.m in Sources */,
 				045E25901F171E0A00F100CC /* ViewController.m in Sources */,
+				045E25D81F171ED800F100CC /* ZYFormData.m in Sources */,
 				045E258D1F171E0A00F100CC /* AppDelegate.m in Sources */,
+				045E25D41F171E3D00F100CC /* ZYCropImageController.m in Sources */,
+				045E25DB1F17200100F100CC /* ZYImagePicker.m in Sources */,
 				045E258A1F171E0A00F100CC /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -424,6 +461,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = YT25KK5ZEJ;
 				INFOPLIST_FILE = ZYImagePickerDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Daniel.ZYImagePickerDemo;
@@ -435,6 +473,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = YT25KK5ZEJ;
 				INFOPLIST_FILE = ZYImagePickerDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Daniel.ZYImagePickerDemo;
