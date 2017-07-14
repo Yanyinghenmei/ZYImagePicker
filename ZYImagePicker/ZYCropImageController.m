@@ -61,6 +61,13 @@
     [self.view insertSubview:self.cropView atIndex:1];
 }
 
+- (CGFloat)imageScale {
+    if (!_imageScale) {
+        _imageScale = 2.0;
+    }
+    return _imageScale;
+}
+
 - (UIImageView *)imageView {
     if (!_imageView) {
         
@@ -103,14 +110,14 @@
         _scrollView.clipsToBounds = false;
         [_scrollView addSubview:self.imageView];
         
-        _scrollView.maximumZoomScale = 2.0;
-        if (_image.size.height/_image.size.width < _cropSize.height/_cropSize.width) {
-            
-        } else {
-            
+        // 保证图片清晰的情况下, 能够达到的最大的缩放比例
+        CGFloat maxZoomScale = _image.size.width/_cropSize.width/self.imageScale;
+        if (maxZoomScale < 2.0) {
+            maxZoomScale = 2.0;
         }
+        _scrollView.maximumZoomScale = maxZoomScale;
         
-        _scrollView.contentSize=self.imageView.frame.size;
+        _scrollView.contentSize = self.imageView.frame.size;
         _scrollView.contentOffset = CGPointMake((self.imageView.frame.size.width-_scrollView.frame.size.width)/2,
                                                 (self.imageView.frame.size.height-_scrollView.frame.size.height)/2);
         _imageView.center = CGPointMake(_scrollView.contentSize.width/2, _scrollView.contentSize.height/2);
@@ -191,10 +198,8 @@
 }
 
 - (IBAction)select:(id)sender {
-    if (!_imageScale) {
-        _imageScale = 2.0;
-    }
-    UIGraphicsBeginImageContextWithOptions(self.imageView.frame.size, NO, _imageScale);
+    
+    UIGraphicsBeginImageContextWithOptions(self.imageView.frame.size, NO, self.imageScale);
     CGContextRef context = UIGraphicsGetCurrentContext();
     [self.imageView.layer renderInContext:context];
     [_image drawInRect:CGRectMake(0, 0, self.imageView.frame.size.width, self.imageView.frame.size.height)];
@@ -202,10 +207,10 @@
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
-    CGRect rect = CGRectMake(self.scrollView.contentOffset.x * _imageScale,
-                             self.scrollView.contentOffset.y * _imageScale,
-                             _cropSize.width * _imageScale,
-                             _cropSize.height * _imageScale);
+    CGRect rect = CGRectMake(self.scrollView.contentOffset.x * self.imageScale,
+                             self.scrollView.contentOffset.y * self.imageScale,
+                             _cropSize.width * self.imageScale,
+                             _cropSize.height * self.imageScale);
     CGImageRef imageRef = CGImageCreateWithImageInRect(image.CGImage, rect);
     UIImage *cropImage = [UIImage imageWithCGImage:imageRef];
     CGImageRelease(imageRef);

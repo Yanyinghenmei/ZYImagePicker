@@ -138,7 +138,7 @@
     __weak typeof(self) weakSelf = self;
     
     [self actionSheetWithLibrary:^{
-        [_imagePicker libraryPhotoWithController:self cropSize:CGSizeMake(200, 200) imageScale:2 isCircular:false FormDataBlock:^(UIImage *image, ZYFormData *formData) {
+        [_imagePicker libraryPhotoWithController:self cropSize:CGSizeMake(200, 200) imageScale:2 isCircular:true FormDataBlock:^(UIImage *image, ZYFormData *formData) {
             __strong typeof(self) strongSelf = weakSelf;
             [(UIImageView *)ges.view setImage:image];
             strongSelf.lab5.text = [NSString stringWithFormat:@"%.1lf x %.1lf",
@@ -146,7 +146,7 @@
                                     image.size.height];
         }];
     } cameraBlock:^{
-        [_imagePicker cameraPhotoWithController:self cropSize:CGSizeMake(200, 200) imageScale:2 isCircular:false FormDataBlock:^(UIImage *image, ZYFormData *formData) {
+        [_imagePicker cameraPhotoWithController:self cropSize:CGSizeMake(200, 200) imageScale:2 isCircular:true FormDataBlock:^(UIImage *image, ZYFormData *formData) {
             __strong typeof(self) strongSelf = weakSelf;
             [(UIImageView *)ges.view setImage:image];
             strongSelf.lab5.text = [NSString stringWithFormat:@"%.1lf x %.1lf",
