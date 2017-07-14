@@ -199,6 +199,7 @@
 
 - (IBAction)select:(id)sender {
     
+    // 足够大的画布, 才能保证足够的清晰度
     UIGraphicsBeginImageContextWithOptions(self.imageView.frame.size, NO, self.imageScale);
     CGContextRef context = UIGraphicsGetCurrentContext();
     [self.imageView.layer renderInContext:context];
