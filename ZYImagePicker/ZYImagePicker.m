@@ -85,8 +85,8 @@ typedef void(^FormDataBlock)(UIImage *image, ZYFormData *formData);
         //先把图片转成NSData
         UIImage* image = [info objectForKey:UIImagePickerControllerOriginalImage];
         
-        // 如果是拍照, 旋转90度
-        if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
+        // 如果方向不对
+        if (image.imageOrientation != UIImageOrientationUp) {
             image = [self fixOrientation:image];
         }
         
@@ -102,11 +102,7 @@ typedef void(^FormDataBlock)(UIImage *image, ZYFormData *formData);
         }
         
         NSData *data;
-        if (UIImagePNGRepresentation(image) == nil) {
-            data = UIImageJPEGRepresentation(image, 1);
-        } else {
-            data = UIImagePNGRepresentation(image);
-        }
+        data = UIImageJPEGRepresentation(image, 1);
         
         //图片命名用时间戳表示
         NSString * imageNameStr = [self imageNameWithDate];

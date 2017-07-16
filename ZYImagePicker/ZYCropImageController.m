@@ -44,6 +44,8 @@
     self.automaticallyAdjustsScrollViewInsets = false;
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
+    [self setUI];
+    
     // 设置截取大小
     if (!_cropSize.width) {
         _cropSize = CGSizeMake(ZYScreenWidth, ZYScreenHeight);
@@ -59,6 +61,26 @@
     
     // crop view
     [self.view insertSubview:self.cropView atIndex:1];
+}
+
+- (void)setUI {
+    self.view.backgroundColor = [UIColor blackColor];
+    UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, ZYScreenHeight-70, ZYScreenWidth, 70)];
+    bottomView.backgroundColor = [UIColor colorWithRed:52/255.00 green:52/255.00 blue:52/255.00 alpha:.9f];
+    [self.view addSubview:bottomView];
+    
+    UIButton *cancelBtn = [[UIButton alloc] initWithFrame:CGRectMake(10, 15, 60, 40)];
+    [cancelBtn setTitle:NSLocalizedStringFromTable(@"取消", @"ZYLocalizedString", nil) forState:UIControlStateNormal];
+    [cancelBtn addTarget:self action:@selector(dismiss:) forControlEvents:UIControlEventTouchUpInside];
+    [bottomView addSubview:cancelBtn];
+    
+    UIButton *useBtn = [[UIButton alloc] initWithFrame:CGRectMake(ZYScreenWidth-10-60, 15, 60, 40)];
+    [useBtn setTitle:NSLocalizedStringFromTable(@"使用", @"ZYLocalizedString", nil) forState:UIControlStateNormal];
+    [useBtn addTarget:self action:@selector(select:) forControlEvents:UIControlEventTouchUpInside];
+    [bottomView addSubview:useBtn];
+    
+    cancelBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    useBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
 }
 
 - (CGFloat)imageScale {
@@ -191,13 +213,13 @@
     [_imageView setCenter:CGPointMake(xcenter, ycenter)];
 }
 
-- (IBAction)dismiss:(id)sender {
+- (void)dismiss:(id)sender {
     [self dismissViewControllerAnimated:true completion:nil];
     // if pop to imagePickerController, the retake button and use photo button can't click; so ...
     // [self.navigationController popViewControllerAnimated:true];
 }
 
-- (IBAction)select:(id)sender {
+- (void)select:(id)sender {
     
     // 足够大的画布, 才能保证足够的清晰度
     UIGraphicsBeginImageContextWithOptions(self.imageView.frame.size, NO, self.imageScale);
