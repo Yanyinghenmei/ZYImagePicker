@@ -18,12 +18,6 @@
 
 + (NSBundle *)bundle;
 
-+ (NSString *)userLanguage;
-
-+ (void)setUserLanguage:(NSString *)language;
-
-+ (NSString *)localizedStringForKey:(NSString *)key;
-
 + (NSString *)localizedStringForKey:(NSString *)key fromTable:(NSString *)table;
 
 @end

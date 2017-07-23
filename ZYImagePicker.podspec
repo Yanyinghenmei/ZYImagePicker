@@ -3,7 +3,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "ZYImagePicker"
-  s.version      = "0.0.3"
+  s.version      = "0.0.4"
   s.summary      = "A picture picker that specifies size and clipping"
 
   s.description  = <<-DESC
@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/Yanyinghenmei/ZYImagePicker.git", :tag => "#{s.version}" }
 
 	s.source_files = "ZYImagePicker", "ZYImagePicker/**/*.{h,m}"
-  s.resources    = "ZYImagePicker/*.lproj/*"  
+  s.resources    = "ZYImagePicker/ZYBundle.bundle"  
 
 	s.requires_arc = true
 
