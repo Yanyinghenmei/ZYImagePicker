@@ -1,10 +1,9 @@
-/*
+/* 
   ZYLocalizedString.strings
   ZYImagePickerDemo
 
-  Created by Daniel on 2017/7/16.
+  Created by Daniel on 2017/7/23.
   Copyright © 2017年 Daniel. All rights reserved.
 */
-
 "取消" = "Cancel";
 "使用" = "Use";

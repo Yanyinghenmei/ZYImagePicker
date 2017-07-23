@@ -19,7 +19,7 @@
 		045E25D41F171E3D00F100CC /* ZYCropImageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045E25CB1F171E3D00F100CC /* ZYCropImageController.m */; };
 		045E25D81F171ED800F100CC /* ZYFormData.m in Sources */ = {isa = PBXBuildFile; fileRef = 045E25D71F171ED800F100CC /* ZYFormData.m */; };
 		045E25DB1F17200100F100CC /* ZYImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 045E25DA1F17200100F100CC /* ZYImagePicker.m */; };
-		65BEE4B31F1B163800F9B264 /* ZYLocalizedString.strings in Resources */ = {isa = PBXBuildFile; fileRef = 65BEE4B51F1B163800F9B264 /* ZYLocalizedString.strings */; };
+		65C481271F248AFC009001A5 /* ZYLocalizedString.strings in Resources */ = {isa = PBXBuildFile; fileRef = 65C481291F248AFC009001A5 /* ZYLocalizedString.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,9 +64,9 @@
 		045E25D71F171ED800F100CC /* ZYFormData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYFormData.m; sourceTree = "<group>"; };
 		045E25D91F17200100F100CC /* ZYImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYImagePicker.h; sourceTree = "<group>"; };
 		045E25DA1F17200100F100CC /* ZYImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYImagePicker.m; sourceTree = "<group>"; };
-		65BEE4B41F1B163800F9B264 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/ZYLocalizedString.strings; sourceTree = "<group>"; };
-		65BEE4B61F1B163E00F9B264 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ZYLocalizedString.strings; sourceTree = "<group>"; };
-		65BEE4B71F1B167A00F9B264 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/ZYLocalizedString.strings"; sourceTree = "<group>"; };
+		65C481281F248AFC009001A5 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/ZYLocalizedString.strings"; sourceTree = "<group>"; };
+		65C4812A1F248B00009001A5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ZYLocalizedString.strings; sourceTree = "<group>"; };
+		65C4812B1F248B10009001A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/ZYLocalizedString.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,7 +168,7 @@
 				045E25CB1F171E3D00F100CC /* ZYCropImageController.m */,
 				045E25D61F171ED800F100CC /* ZYFormData.h */,
 				045E25D71F171ED800F100CC /* ZYFormData.m */,
-				65BEE4B51F1B163800F9B264 /* ZYLocalizedString.strings */,
+				65C481291F248AFC009001A5 /* ZYLocalizedString.strings */,
 			);
 			path = ZYImagePicker;
 			sourceTree = "<group>";
@@ -283,7 +283,7 @@
 			files = (
 				045E25981F171E0A00F100CC /* LaunchScreen.storyboard in Resources */,
 				045E25951F171E0A00F100CC /* Assets.xcassets in Resources */,
-				65BEE4B31F1B163800F9B264 /* ZYLocalizedString.strings in Resources */,
+				65C481271F248AFC009001A5 /* ZYLocalizedString.strings in Resources */,
 				045E25931F171E0A00F100CC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -367,12 +367,12 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		65BEE4B51F1B163800F9B264 /* ZYLocalizedString.strings */ = {
+		65C481291F248AFC009001A5 /* ZYLocalizedString.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				65BEE4B41F1B163800F9B264 /* Base */,
-				65BEE4B61F1B163E00F9B264 /* en */,
-				65BEE4B71F1B167A00F9B264 /* zh-Hans */,
+				65C481281F248AFC009001A5 /* zh-Hans */,
+				65C4812A1F248B00009001A5 /* en */,
+				65C4812B1F248B10009001A5 /* Base */,
 			);
 			name = ZYLocalizedString.strings;
 			sourceTree = "<group>";
