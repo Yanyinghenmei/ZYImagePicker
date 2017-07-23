@@ -7,6 +7,7 @@
 //
 
 #import "ZYCropImageController.h"
+#import "ZYLocalizableManager.h"
 
 @interface ZYCropView :UIView
 @property (nonatomic, strong)UIView *hitView;
@@ -71,12 +72,12 @@
     [self.view addSubview:bottomView];
     
     UIButton *cancelBtn = [[UIButton alloc] initWithFrame:CGRectMake(10, 15, 60, 40)];
-    [cancelBtn setTitle:NSLocalizedStringFromTable(@"取消", @"ZYLocalizedString", nil) forState:UIControlStateNormal];
+    [cancelBtn setTitle:ZYLocalizedStringFromTable(@"取消", @"ZYLocalizedString", nil) forState:UIControlStateNormal];
     [cancelBtn addTarget:self action:@selector(dismiss:) forControlEvents:UIControlEventTouchUpInside];
     [bottomView addSubview:cancelBtn];
     
     UIButton *useBtn = [[UIButton alloc] initWithFrame:CGRectMake(ZYScreenWidth-10-60, 15, 60, 40)];
-    [useBtn setTitle:NSLocalizedStringFromTable(@"使用", @"ZYLocalizedString", nil) forState:UIControlStateNormal];
+    [useBtn setTitle:ZYLocalizedStringFromTable(@"使用", @"ZYLocalizedString", nil) forState:UIControlStateNormal];
     [useBtn addTarget:self action:@selector(select:) forControlEvents:UIControlEventTouchUpInside];
     [bottomView addSubview:useBtn];
     

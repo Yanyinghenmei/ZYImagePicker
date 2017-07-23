@@ -20,6 +20,7 @@
 		045E25D81F171ED800F100CC /* ZYFormData.m in Sources */ = {isa = PBXBuildFile; fileRef = 045E25D71F171ED800F100CC /* ZYFormData.m */; };
 		045E25DB1F17200100F100CC /* ZYImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 045E25DA1F17200100F100CC /* ZYImagePicker.m */; };
 		65C481271F248AFC009001A5 /* ZYLocalizedString.strings in Resources */ = {isa = PBXBuildFile; fileRef = 65C481291F248AFC009001A5 /* ZYLocalizedString.strings */; };
+		65C481301F24A7D7009001A5 /* ZYLocalizableManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C4812F1F24A7D7009001A5 /* ZYLocalizableManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,8 @@
 		65C481281F248AFC009001A5 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/ZYLocalizedString.strings"; sourceTree = "<group>"; };
 		65C4812A1F248B00009001A5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ZYLocalizedString.strings; sourceTree = "<group>"; };
 		65C4812B1F248B10009001A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/ZYLocalizedString.strings; sourceTree = "<group>"; };
+		65C4812E1F24A7D7009001A5 /* ZYLocalizableManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYLocalizableManager.h; sourceTree = "<group>"; };
+		65C4812F1F24A7D7009001A5 /* ZYLocalizableManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYLocalizableManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +171,8 @@
 				045E25CB1F171E3D00F100CC /* ZYCropImageController.m */,
 				045E25D61F171ED800F100CC /* ZYFormData.h */,
 				045E25D71F171ED800F100CC /* ZYFormData.m */,
+				65C4812E1F24A7D7009001A5 /* ZYLocalizableManager.h */,
+				65C4812F1F24A7D7009001A5 /* ZYLocalizableManager.m */,
 				65C481291F248AFC009001A5 /* ZYLocalizedString.strings */,
 			);
 			path = ZYImagePicker;
@@ -310,6 +315,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				045E25D11F171E3D00F100CC /* UIImagePickerController+ZY.m in Sources */,
+				65C481301F24A7D7009001A5 /* ZYLocalizableManager.m in Sources */,
 				045E25901F171E0A00F100CC /* ViewController.m in Sources */,
 				045E25D81F171ED800F100CC /* ZYFormData.m in Sources */,
 				045E258D1F171E0A00F100CC /* AppDelegate.m in Sources */,
