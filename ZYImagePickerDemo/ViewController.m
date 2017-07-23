@@ -44,6 +44,7 @@
     [_imgView6 addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imgView6Click:)]];
 }
 
+// default compressWidth 500
 - (void)imgView1Click:(UIGestureRecognizer *)ges {
     __weak typeof(self) weakSelf = self;
     
@@ -67,6 +68,7 @@
     
 }
 
+// compressWidth = 320
 - (void)imgView2Click:(UIGestureRecognizer *)ges {
     __weak typeof(self) weakSelf = self;
     
@@ -90,6 +92,7 @@
     
 }
 
+// cropSize = (200, 200), imageScale = 1
 - (void)imgView3Click:(UIGestureRecognizer *)ges {
     __weak typeof(self) weakSelf = self;
     
@@ -112,6 +115,7 @@
     }];
 }
 
+// cropSize = (200, 200), imageScale = 2
 - (void)imgView4Click:(UIGestureRecognizer *)ges {
     __weak typeof(self) weakSelf = self;
     
@@ -134,6 +138,7 @@
     }];
 }
 
+// cropSize = (200, 200), imageScale = 1, isCircular = true
 - (void)imgView5Click:(UIGestureRecognizer *)ges {
     __weak typeof(self) weakSelf = self;
     
@@ -156,6 +161,7 @@
     }];
 }
 
+// cropSize = (200, 300), imageScale = 1, isCircular = true
 - (void)imgView6Click:(UIGestureRecognizer *)ges {
     __weak typeof(self) weakSelf = self;
     

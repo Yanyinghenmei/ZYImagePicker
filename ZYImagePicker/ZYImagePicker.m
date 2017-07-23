@@ -123,6 +123,8 @@ typedef void(^FormDataBlock)(UIImage *image, ZYFormData *formData);
             cropVC.selectBlock = ^(UIImage *image, ZYFormData *editFormData) {
                 __strong typeof(self) strongSelf = weakSelf;
                 strongSelf.formDataBlock(image, editFormData);
+                strongSelf.compressWidth = 0;
+                strongSelf.cropSize = CGSizeZero;
             };
             [picker pushViewController:cropVC animated:true];
         } else {
