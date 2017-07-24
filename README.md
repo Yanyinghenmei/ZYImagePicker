@@ -29,6 +29,10 @@ $ pod install
 
 ##### _imagePicker must be a strong reference
 ```objc
+@property (nonatomic, strong)ZYImagePicker *imagePicker;
+```
+
+```objc
 _imagePicker = [ZYImagePicker new];
 ```
 
