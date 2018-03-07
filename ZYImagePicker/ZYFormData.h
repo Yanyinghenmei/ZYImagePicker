@@ -28,8 +28,10 @@
  *  文件类型
  */
 @property (nonatomic, copy) NSString *mimeType;
+
+
 /*
- * 文件路径
+ * 视频路径--如果选择视频或拍摄视频
  */
-@property (nonatomic, copy) NSString *filePath;
+@property (nonatomic, copy) NSURL *fileUrl;
 @end
