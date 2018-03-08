@@ -53,12 +53,11 @@
 
 // 视频
 - (void)libraryMoiveWithController:(UIViewController *)controller
-                   maximumDuration:(NSTimeInterval)duration
                     formDataBlock:(void(^)(UIImage *thumbnail, ZYFormData *formData))block;
 
 - (void)cameraMoiveWithController:(UIViewController *)controller
                   maximumDuration:(NSTimeInterval)duration
-                    formDataBlock:(void (^)(UIImage *, ZYFormData *))block;
+                    formDataBlock:(void (^)(UIImage *thumbnail, ZYFormData *))block;
 
 // 格式转换 如果用过之后不需要保存, 记得删掉哦 [[NSFileManager defaultManager] removeItemAtURL:videoURL error:nil];
 - (NSURL *)convertToMp4:(NSURL *)movUrl;
