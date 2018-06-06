@@ -236,15 +236,17 @@ typedef void(^FormDataBlock)(UIImage *image, ZYFormData *formData);
         AVURLAsset *asset = [AVURLAsset URLAssetWithURL:videoURL options:opts]; // 初始化视频媒体文件
         
         // 视频时长
-         NSUInteger second = asset.duration.value / asset.duration.timescale;
+         CGFloat second = asset.duration.value / asset.duration.timescale;
          if (second > _maximun && _maximun) {
              NSString *msg = [NSString stringWithFormat:@"%@%.2f%@",ZYLocalizedStringFromTable(@"视频不得超过", @"ZYLocalizedString", nil),_maximun,ZYLocalizedStringFromTable(@"秒", @"ZYLocalizedString", nil)];
              UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:msg preferredStyle:UIAlertControllerStyleAlert];
              UIAlertAction *cancelAc = [UIAlertAction actionWithTitle:ZYLocalizedStringFromTable(@"确定", @"ZYLocalizedString", nil) style:UIAlertActionStyleCancel handler:nil];
              [alert addAction:cancelAc];
          
+             __weak typeof(self) weakSelf = self;
              [picker dismissViewControllerAnimated:true completion:^{
-                 [_visibleVC presentViewController:alert animated:true completion:nil];
+                 __strong typeof(weakSelf) strongSelf = weakSelf;
+                 [weakSelf.visibleVC presentViewController:alert animated:true completion:nil];
              }];
              return;
          }
