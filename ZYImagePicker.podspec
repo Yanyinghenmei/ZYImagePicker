@@ -3,7 +3,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "ZYImagePicker"
-  s.version      = "0.0.7"
+  s.version      = "0.0.9"
   s.summary      = "A picture picker that specifies size and clipping"
 
   s.description  = <<-DESC
