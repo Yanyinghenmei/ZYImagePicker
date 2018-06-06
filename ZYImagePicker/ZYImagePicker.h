@@ -11,6 +11,8 @@
 
 @interface ZYImagePicker : NSObject<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
+// 语言 如 NSCalendarIdentifierChinese
+@property (nonatomic, copy)NSString * accessibilityLanguage;
 
 
 /**
@@ -53,7 +55,8 @@
 
 // 视频
 - (void)libraryMoiveWithController:(UIViewController *)controller
-                    formDataBlock:(void(^)(UIImage *thumbnail, ZYFormData *formData))block;
+                   maximumDuration:(NSTimeInterval)duration
+                     formDataBlock:(void (^)(UIImage *, ZYFormData *))block;
 
 - (void)cameraMoiveWithController:(UIViewController *)controller
                   maximumDuration:(NSTimeInterval)duration

@@ -30,6 +30,11 @@ typedef void(^FormDataBlock)(UIImage *image, ZYFormData *formData);
 
 @implementation ZYImagePicker
 
+- (void)setAccessibilityLanguage:(NSString *)accessibilityLanguage {
+    _accessibilityLanguage = accessibilityLanguage;
+    self.ipc.accessibilityLanguage = _accessibilityLanguage;
+}
+
 #pragma mark -- 获取指定大小图片
 - (void)libraryPhotoWithController:(UIViewController *)controller compressWidth:(CGFloat)width formDataBlock:(void (^)(UIImage *, ZYFormData *))block {
     _formDataBlock = block;
@@ -165,7 +170,7 @@ typedef void(^FormDataBlock)(UIImage *image, ZYFormData *formData);
     {
         //先把图片转成NSData
         UIImage* image = [info objectForKey:UIImagePickerControllerOriginalImage];
-        
+        NSLog(@"imageSize: %lf, %lf", image.size.width, image.size.height);
         // 如果方向不对
         if (image.imageOrientation != UIImageOrientationUp) {
             image = [self fixOrientation:image];
@@ -231,20 +236,18 @@ typedef void(^FormDataBlock)(UIImage *image, ZYFormData *formData);
         AVURLAsset *asset = [AVURLAsset URLAssetWithURL:videoURL options:opts]; // 初始化视频媒体文件
         
         // 视频时长
-        /*
          NSUInteger second = asset.duration.value / asset.duration.timescale;
-         if (second > _maximun) {
-         NSString *msg = [NSString stringWithFormat:@"%@%.2f%@",ZYLocalizedStringFromTable(@"视频不得超过", @"ZYLocalizedString", nil),_maximun,ZYLocalizedStringFromTable(@"秒", @"ZYLocalizedString", nil)];
-         UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:msg preferredStyle:UIAlertControllerStyleAlert];
-         UIAlertAction *cancelAc = [UIAlertAction actionWithTitle:ZYLocalizedStringFromTable(@"确定", @"ZYLocalizedString", nil) style:UIAlertActionStyleCancel handler:nil];
-         [alert addAction:cancelAc];
+         if (second > _maximun && _maximun) {
+             NSString *msg = [NSString stringWithFormat:@"%@%.2f%@",ZYLocalizedStringFromTable(@"视频不得超过", @"ZYLocalizedString", nil),_maximun,ZYLocalizedStringFromTable(@"秒", @"ZYLocalizedString", nil)];
+             UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:msg preferredStyle:UIAlertControllerStyleAlert];
+             UIAlertAction *cancelAc = [UIAlertAction actionWithTitle:ZYLocalizedStringFromTable(@"确定", @"ZYLocalizedString", nil) style:UIAlertActionStyleCancel handler:nil];
+             [alert addAction:cancelAc];
          
-         [picker dismissViewControllerAnimated:true completion:^{
-         [_visibleVC presentViewController:alert animated:true completion:nil];
-         }];
-         return;
+             [picker dismissViewControllerAnimated:true completion:^{
+                 [_visibleVC presentViewController:alert animated:true completion:nil];
+             }];
+             return;
          }
-         */
         
         // 缩略图
         AVAssetImageGenerator *gen = [[AVAssetImageGenerator alloc] initWithAsset:asset];
@@ -392,6 +395,9 @@ typedef void(^FormDataBlock)(UIImage *image, ZYFormData *formData);
     if (!_ipc) {
         _ipc = [[UIImagePickerController alloc] init];
         _ipc.allowsEditing = false;
+        if (_accessibilityLanguage.length) {
+            _ipc.accessibilityLanguage = _accessibilityLanguage;
+        }
     }
     return _ipc;
 }

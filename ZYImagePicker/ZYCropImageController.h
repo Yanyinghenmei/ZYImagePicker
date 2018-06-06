@@ -12,6 +12,10 @@
 #define ZYScreenWidth [UIScreen mainScreen].bounds.size.width
 #define ZYScreenHeight [UIScreen mainScreen].bounds.size.height
 
+#define CropBottomViewHeight 70
+#define MaxCropViewWidth ZYScreenWidth
+#define MaxCropViewHeight ZYScreenHeight-CropBottomViewHeight
+
 @interface ZYCropImageController : UIViewController
 @property (nonatomic, copy)void(^selectBlock)(UIImage *image, ZYFormData *formData);
 

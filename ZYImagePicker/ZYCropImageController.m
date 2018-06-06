@@ -47,11 +47,51 @@
     
     [self setUI];
     
+    CGFloat maxWidth = MaxCropViewWidth;
+    CGFloat maxHeight = MaxCropViewHeight;
+    
     // 设置截取大小
     if (!_cropSize.width) {
-        _cropSize = CGSizeMake(ZYScreenWidth, ZYScreenHeight);
-    } else if (_cropSize.width > ZYScreenWidth) {
-        _cropSize = CGSizeMake(ZYScreenWidth, ZYScreenHeight);
+        _cropSize = CGSizeMake(maxWidth, maxHeight);
+    }
+    
+    CGFloat origWidth = _cropSize.width;
+    CGFloat origHeight = _cropSize.height;
+    CGFloat scale = 0;
+    if (origWidth > maxWidth && origHeight > maxHeight) {
+        if (origWidth/origHeight > maxWidth/maxHeight) {
+            scale = maxWidth/origWidth;
+            _cropSize = CGSizeMake(maxWidth, scale * origHeight);
+            _imageScale = _imageScale / scale;
+        }
+        
+        else if (origWidth/origHeight < maxWidth/maxHeight) {
+            scale = maxHeight/origHeight;
+            _cropSize = CGSizeMake(scale * origWidth, maxHeight);
+            _imageScale = _imageScale / scale;
+        }
+        
+        else {
+            scale = maxHeight/origHeight;
+            _cropSize = CGSizeMake(maxWidth, maxHeight);
+            _imageScale = _imageScale / scale;
+        }
+    }
+    
+    else if (origWidth > maxWidth) {
+        scale = maxWidth/origWidth;
+        _cropSize = CGSizeMake(maxWidth, scale * origHeight);
+        _imageScale = _imageScale/ scale;
+    }
+    
+    else if (origHeight > maxHeight) {
+        scale = maxHeight/origHeight;
+        _cropSize = CGSizeMake(origWidth * scale, maxHeight);
+        _imageScale = _imageScale / scale;
+    }
+    
+    if (scale) {
+        NSLog(@"🍺 Warning: your `cropSize` is too big, or you sould set `scale` bigger");
     }
     
     // image
@@ -67,7 +107,7 @@
 - (void)setUI {
     
     self.view.backgroundColor = [UIColor blackColor];
-    UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, ZYScreenHeight-70, ZYScreenWidth, 70)];
+    UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, ZYScreenHeight-CropBottomViewHeight, ZYScreenWidth, 70)];
     bottomView.backgroundColor = [UIColor colorWithRed:52/255.00 green:52/255.00 blue:52/255.00 alpha:.9f];
     [self.view addSubview:bottomView];
     
@@ -126,8 +166,8 @@
 - (UIScrollView *)scrollView {
     if (!_scrollView) {
         _scrollView = [[UIScrollView alloc] initWithFrame:
-                       CGRectMake((ZYScreenWidth-_cropSize.width)/2,
-                                  (ZYScreenHeight-_cropSize.height)/2,
+                       CGRectMake((MaxCropViewWidth-_cropSize.width)/2,
+                                  (MaxCropViewHeight-_cropSize.height)/2,
                                   _cropSize.width,
                                   _cropSize.height)];
         
@@ -159,7 +199,7 @@
 
 - (ZYCropView *)cropView {
     if (!_cropView) {
-        _cropView = [[ZYCropView alloc] initWithFrame:CGRectMake(0, 0, ZYScreenWidth, ZYScreenHeight)];
+        _cropView = [[ZYCropView alloc] initWithFrame:CGRectMake(0, 0, MaxCropViewWidth, MaxCropViewHeight)];
         _cropView.hitView = self.scrollView;
         
         //中间镂空的矩形框
@@ -198,8 +238,8 @@
 }
 
 - (void)setCropSize:(CGSize)cropSize {
-    NSAssert(_cropSize.width<=ZYScreenWidth, @"截取大小不得超出屏幕");
-    NSAssert(_cropSize.height<=ZYScreenHeight, @"截取大小不得超出屏幕");
+    NSAssert(_cropSize.width<=MaxCropViewWidth, @"截取尺寸太大");
+    NSAssert(_cropSize.height<=MaxCropViewHeight, @"截取尺寸太大");
     _cropSize = cropSize;
 }
 

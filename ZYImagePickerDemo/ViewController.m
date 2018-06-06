@@ -191,7 +191,7 @@
     __weak typeof(self) weakSelf = self;
     [self actionSheetWithLibrary:^{
         __strong typeof(self) strongSelf = weakSelf;
-        [_imagePicker libraryMoiveWithController:self maximumDuration:11 formDataBlock:^(UIImage *thumbnail, ZYFormData *formData) {
+        [_imagePicker libraryMoiveWithController:self maximumDuration:3 formDataBlock:^(UIImage *thumbnail, ZYFormData *formData) {
             [(UIImageView *)ges.view setImage:thumbnail];
             strongSelf.lab7.text = formData.fileUrl.absoluteString;
         }];
