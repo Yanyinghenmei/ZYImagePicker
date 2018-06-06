@@ -98,7 +98,7 @@ typedef void(^FormDataBlock)(UIImage *image, ZYFormData *formData);
 
 #pragma mark -- 获取视频
 // 相册获取视频
-- (void)libraryMoiveWithController:(UIViewController *)controller maximumDuration:(NSTimeInterval)duration formDataBlock:(void (^)(UIImage *, ZYFormData *))block {
+- (void)libraryMoiveWithController:(UIViewController *)controller maximumDuration:(NSTimeInterval)duration formDataBlock:(void (^)(UIImage *image, ZYFormData *formData))block {
     _formDataBlock = block;
     _visibleVC = controller;
     _maximun = duration;
@@ -127,7 +127,7 @@ typedef void(^FormDataBlock)(UIImage *image, ZYFormData *formData);
     }];
 }
 // 拍摄视频
-- (void)cameraMoiveWithController:(UIViewController *)controller maximumDuration:(NSTimeInterval)duration formDataBlock:(void (^)(UIImage *, ZYFormData *))block {
+- (void)cameraMoiveWithController:(UIViewController *)controller maximumDuration:(NSTimeInterval)duration formDataBlock:(void (^)(UIImage *image, ZYFormData *formData))block {
     _formDataBlock = block;
     _visibleVC = controller;
     _maximun = duration;
