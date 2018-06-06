@@ -246,7 +246,7 @@ typedef void(^FormDataBlock)(UIImage *image, ZYFormData *formData);
              __weak typeof(self) weakSelf = self;
              [picker dismissViewControllerAnimated:true completion:^{
                  __strong typeof(weakSelf) strongSelf = weakSelf;
-                 [weakSelf.visibleVC presentViewController:alert animated:true completion:nil];
+                 [strongSelf.visibleVC presentViewController:alert animated:true completion:nil];
              }];
              return;
          }
