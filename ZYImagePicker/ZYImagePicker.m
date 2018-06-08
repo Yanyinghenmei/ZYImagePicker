@@ -318,7 +318,7 @@ typedef void(^FormDataBlock)(UIImage *image, ZYFormData *formData);
         editedVideoPath = [NSString stringWithFormat:@"file://%@", editedVideoPath];
     }
     
-    NSURL *videoURL = [NSURL URLWithString:[NSString stringWithFormat:@"file://%@", editedVideoPath]];
+    NSURL *videoURL = [NSURL URLWithString:editedVideoPath];
     NSDictionary *opts = [NSDictionary dictionaryWithObject:@(NO) forKey:AVURLAssetPreferPreciseDurationAndTimingKey];
     AVURLAsset *asset = [AVURLAsset URLAssetWithURL:videoURL options:opts]; // 初始化视频媒体文件
     [self endSelectVideoWithUrl:videoURL asset:asset];
