@@ -222,55 +222,124 @@ typedef void(^FormDataBlock)(UIImage *image, ZYFormData *formData);
         // 如果是视频
         NSURL *videoURL = [info objectForKey:UIImagePickerControllerMediaURL];
         
-        ZYFormData *videoFormData = [ZYFormData new];
-        videoFormData.fileUrl = videoURL;
-        videoFormData.name = @"video";
-        
-        // 获取后缀
-        NSString *suffix = [videoURL.absoluteString componentsSeparatedByString:@"."].lastObject;
-        
-        videoFormData.filename = [NSString stringWithFormat:@"%@.%@",[self nameStringWithDate],suffix];
-        videoFormData.mimeType = @"video/*";
-        
         NSDictionary *opts = [NSDictionary dictionaryWithObject:@(NO) forKey:AVURLAssetPreferPreciseDurationAndTimingKey];
         AVURLAsset *asset = [AVURLAsset URLAssetWithURL:videoURL options:opts]; // 初始化视频媒体文件
         
         // 视频时长
-         CGFloat second = asset.duration.value / (CGFloat)asset.duration.timescale;
-         if (second > _maximun && _maximun) {
-             NSString *msg = [NSString stringWithFormat:@"%@%.2f%@",ZYLocalizedStringFromTable(@"视频不得超过", @"ZYLocalizedString", nil),_maximun,ZYLocalizedStringFromTable(@"秒", @"ZYLocalizedString", nil)];
-             UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:msg preferredStyle:UIAlertControllerStyleAlert];
-             UIAlertAction *cancelAc = [UIAlertAction actionWithTitle:ZYLocalizedStringFromTable(@"确定", @"ZYLocalizedString", nil) style:UIAlertActionStyleCancel handler:nil];
-             [alert addAction:cancelAc];
-         
-             __weak typeof(self) weakSelf = self;
-             [picker dismissViewControllerAnimated:true completion:^{
-                 __strong typeof(weakSelf) strongSelf = weakSelf;
-                 [strongSelf.visibleVC presentViewController:alert animated:true completion:nil];
-             }];
-             return;
+        CGFloat second = asset.duration.value / (CGFloat)asset.duration.timescale;
+        if (second > _maximun && _maximun) {
+            NSString *msg = [NSString stringWithFormat:@"%@%.2f%@",ZYLocalizedStringFromTable(@"视频不得超过", @"ZYLocalizedString", nil),_maximun,ZYLocalizedStringFromTable(@"秒", @"ZYLocalizedString", nil)];
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:msg preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *editAction = [UIAlertAction actionWithTitle:ZYLocalizedStringFromTable(@"编辑视频", @"ZYLocalizedString", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                
+                // 检查这个视频资源能不能被修改
+                if ([UIVideoEditorController canEditVideoAtPath:videoURL.path]) {
+                    UIVideoEditorController *editVC = [[UIVideoEditorController alloc] init];
+                    if (_accessibilityLanguage) {
+                        editVC.accessibilityLanguage = _accessibilityLanguage;
+                    }
+                    editVC.videoPath = videoURL.path;
+                    editVC.videoMaximumDuration = _maximun;
+                    editVC.delegate = self;
+                    
+                    [self.visibleVC presentViewController:editVC animated:YES completion:nil];
+                }
+                
+                // 不能编辑, 退出选择器
+                else {
+                    NSString *msg = ZYLocalizedStringFromTable(@"此视频不能编辑",@"ZYLocalizedString",nil);
+                    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:msg preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction *cancelAc = [UIAlertAction actionWithTitle:ZYLocalizedStringFromTable(@"确定", @"ZYLocalizedString", nil) style:UIAlertActionStyleCancel handler:nil];
+                    [alert addAction:cancelAc];
+                    
+                    __weak typeof(self) weakSelf = self;
+                    [picker dismissViewControllerAnimated:true completion:^{
+                        __strong typeof(weakSelf) strongSelf = weakSelf;
+                        [strongSelf.visibleVC presentViewController:alert animated:true completion:nil];
+                    }];
+                }
+                
+            }];
+            
+            // 取消编辑block
+            UIAlertAction *cancelAc = [UIAlertAction actionWithTitle:ZYLocalizedStringFromTable(@"取消", @"ZYLocalizedString", nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                __weak typeof(self) weakSelf = self;
+                [picker dismissViewControllerAnimated:true completion:^{
+                    __strong typeof(weakSelf) strongSelf = weakSelf;
+                    [strongSelf.visibleVC presentViewController:alert animated:true completion:nil];
+                }];
+            }];
+            [alert addAction:editAction];
+            [alert addAction:cancelAc];
+            
+            __weak typeof(self) weakSelf = self;
+            [picker dismissViewControllerAnimated:true completion:^{
+                __strong typeof(weakSelf) strongSelf = weakSelf;
+                [strongSelf.visibleVC presentViewController:alert animated:true completion:nil];
+            }];
+         } else {
+             [self endSelectVideoWithUrl:videoURL asset:asset];
          }
-        
-        // 缩略图
-        AVAssetImageGenerator *gen = [[AVAssetImageGenerator alloc] initWithAsset:asset];
-        gen.appliesPreferredTrackTransform = YES;
-        CMTime time = CMTimeMakeWithSeconds(0.0, 600);
-        NSError *error = nil;
-        CMTime actualTime;
-        CGImageRef image = [gen copyCGImageAtTime:time actualTime:&actualTime error:&error];
-        UIImage *thumb = [[UIImage alloc] initWithCGImage:image];
-        CGImageRelease(image);
-        
-        // 视频时长 
-        
-        if (_formDataBlock) {
-            _formDataBlock(thumb,videoFormData);
-        }
-        
-        [picker dismissViewControllerAnimated:true completion:nil];
     }
 }
 
+- (void)endSelectVideoWithUrl:(NSURL *)videoUrl asset:(AVURLAsset *)asset {
+    ZYFormData *videoFormData = [ZYFormData new];
+    videoFormData.fileUrl = videoUrl;
+    videoFormData.name = @"video";
+    
+    // 获取后缀
+    NSString *suffix = [videoUrl.absoluteString componentsSeparatedByString:@"."].lastObject;
+    
+    videoFormData.filename = [NSString stringWithFormat:@"%@.%@",[self nameStringWithDate],suffix];
+    videoFormData.mimeType = @"video/*";
+    
+    // 缩略图
+    AVAssetImageGenerator *gen = [[AVAssetImageGenerator alloc] initWithAsset:asset];
+    gen.appliesPreferredTrackTransform = YES;
+    CMTime time = CMTimeMakeWithSeconds(0.0, 600);
+    NSError *error = nil;
+    CMTime actualTime;
+    CGImageRef image = [gen copyCGImageAtTime:time actualTime:&actualTime error:&error];
+    UIImage *thumb = [[UIImage alloc] initWithCGImage:image];
+    CGImageRelease(image);
+    
+    // 视频时长
+    
+    if (_formDataBlock) {
+        _formDataBlock(thumb,videoFormData);
+    }
+    
+    [self.visibleVC dismissViewControllerAnimated:true completion:nil];
+}
+#pragma mark -- UIVideoEditorControllerDelegate
+- (void)videoEditorController:(UIVideoEditorController *)editor didSaveEditedVideoToPath:(NSString *)editedVideoPath {
+    if (![editedVideoPath rangeOfString:@"file"].length) {
+        editedVideoPath = [NSString stringWithFormat:@"file://%@", editedVideoPath];
+    }
+    
+    NSURL *videoURL = [NSURL URLWithString:[NSString stringWithFormat:@"file://%@", editedVideoPath]];
+    NSDictionary *opts = [NSDictionary dictionaryWithObject:@(NO) forKey:AVURLAssetPreferPreciseDurationAndTimingKey];
+    AVURLAsset *asset = [AVURLAsset URLAssetWithURL:videoURL options:opts]; // 初始化视频媒体文件
+    [self endSelectVideoWithUrl:videoURL asset:asset];
+}
+
+- (void)videoEditorController:(UIVideoEditorController *)editor didFailWithError:(NSError *)error {
+    NSString *msg = [NSString stringWithFormat:@"%@%.2f%@",ZYLocalizedStringFromTable(@"视频编辑失败", @"ZYLocalizedString", nil),_maximun,ZYLocalizedStringFromTable(@"秒", @"ZYLocalizedString", nil)];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:msg preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancelAc = [UIAlertAction actionWithTitle:ZYLocalizedStringFromTable(@"确定", @"ZYLocalizedString", nil) style:UIAlertActionStyleCancel handler:nil];
+    [alert addAction:cancelAc];
+    
+    __weak typeof(self) weakSelf = self;
+    [self.visibleVC dismissViewControllerAnimated:true completion:^{
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        [strongSelf.visibleVC presentViewController:alert animated:true completion:nil];
+    }];
+}
+
+- (void)videoEditorControllerDidCancel:(UIVideoEditorController *)editor {
+    [self.visibleVC dismissViewControllerAnimated:true completion:nil];
+}
 #pragma mark -- 旋转图片
 - (UIImage *)fixOrientation:(UIImage *)aImage {
     

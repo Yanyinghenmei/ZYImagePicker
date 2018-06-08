@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ZYFormData.h"
 
-@interface ZYImagePicker : NSObject<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+@interface ZYImagePicker : NSObject<UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIVideoEditorControllerDelegate>
 
 // 语言 如 NSCalendarIdentifierChinese
 @property (nonatomic, copy)NSString * accessibilityLanguage;

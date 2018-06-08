@@ -11,3 +11,6 @@
 "视频不得超过" = "Video must not exceed";
 "秒" = "seconds";
 "确定" = "YES";
+"此视频不能编辑" = "This video cannot be edited";
+"编辑视频" = "Edit video";
+"视频编辑失败" = "Failure of video editing";
