@@ -243,7 +243,7 @@
 				TargetAttributes = {
 					045E25841F171E0A00F100CC = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = R82MU68RWT;
+						DevelopmentTeam = F4PKZDD9ZQ;
 						ProvisioningStyle = Automatic;
 					};
 					045E259D1F171E0A00F100CC = {
@@ -470,10 +470,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = R82MU68RWT;
+				DEVELOPMENT_TEAM = F4PKZDD9ZQ;
 				INFOPLIST_FILE = ZYImagePickerDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Daniel.ZYImagePickerDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = Daniel.ZYImagePicker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -482,10 +483,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = R82MU68RWT;
+				DEVELOPMENT_TEAM = F4PKZDD9ZQ;
 				INFOPLIST_FILE = ZYImagePickerDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Daniel.ZYImagePickerDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = Daniel.ZYImagePicker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
