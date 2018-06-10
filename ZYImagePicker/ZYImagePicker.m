@@ -228,21 +228,25 @@ typedef void(^FormDataBlock)(UIImage *image, ZYFormData *formData);
         // 视频时长
         CGFloat second = asset.duration.value / (CGFloat)asset.duration.timescale;
         if (second > _maximun && _maximun) {
+            
+            __weak typeof(self) weakSelf = self;
+            
             NSString *msg = [NSString stringWithFormat:@"%@%.2f%@",ZYLocalizedStringFromTable(@"视频不得超过", @"ZYLocalizedString", nil),_maximun,ZYLocalizedStringFromTable(@"秒", @"ZYLocalizedString", nil)];
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:msg preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *editAction = [UIAlertAction actionWithTitle:ZYLocalizedStringFromTable(@"编辑视频", @"ZYLocalizedString", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                __strong typeof(weakSelf) strongSelf = weakSelf;
                 
                 // 检查这个视频资源能不能被修改
                 if ([UIVideoEditorController canEditVideoAtPath:videoURL.path]) {
                     UIVideoEditorController *editVC = [[UIVideoEditorController alloc] init];
-                    if (_accessibilityLanguage) {
+                    if (weakSelf.accessibilityLanguage) {
                         editVC.accessibilityLanguage = _accessibilityLanguage;
                     }
                     editVC.videoPath = videoURL.path;
-                    editVC.videoMaximumDuration = _maximun;
+                    editVC.videoMaximumDuration = weakSelf.maximun;
                     editVC.delegate = self;
                     
-                    [self.visibleVC presentViewController:editVC animated:YES completion:nil];
+                    [weakSelf.visibleVC presentViewController:editVC animated:YES completion:nil];
                 }
                 
                 // 不能编辑, 退出选择器
@@ -263,7 +267,6 @@ typedef void(^FormDataBlock)(UIImage *image, ZYFormData *formData);
             
             // 取消编辑block
             UIAlertAction *cancelAc = [UIAlertAction actionWithTitle:ZYLocalizedStringFromTable(@"取消", @"ZYLocalizedString", nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-                __weak typeof(self) weakSelf = self;
                 [picker dismissViewControllerAnimated:true completion:^{
                     __strong typeof(weakSelf) strongSelf = weakSelf;
                     [strongSelf.visibleVC presentViewController:alert animated:true completion:nil];
@@ -272,7 +275,6 @@ typedef void(^FormDataBlock)(UIImage *image, ZYFormData *formData);
             [alert addAction:editAction];
             [alert addAction:cancelAc];
             
-            __weak typeof(self) weakSelf = self;
             [picker dismissViewControllerAnimated:true completion:^{
                 __strong typeof(weakSelf) strongSelf = weakSelf;
                 [strongSelf.visibleVC presentViewController:alert animated:true completion:nil];
