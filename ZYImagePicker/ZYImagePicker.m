@@ -239,14 +239,14 @@ typedef void(^FormDataBlock)(UIImage *image, ZYFormData *formData);
                 // 检查这个视频资源能不能被修改
                 if ([UIVideoEditorController canEditVideoAtPath:videoURL.path]) {
                     UIVideoEditorController *editVC = [[UIVideoEditorController alloc] init];
-                    if (weakSelf.accessibilityLanguage) {
-                        editVC.accessibilityLanguage = _accessibilityLanguage;
+                    if (strongSelf.accessibilityLanguage) {
+                        editVC.accessibilityLanguage = strongSelf.accessibilityLanguage;
                     }
                     editVC.videoPath = videoURL.path;
-                    editVC.videoMaximumDuration = weakSelf.maximun;
+                    editVC.videoMaximumDuration = strongSelf.maximun;
                     editVC.delegate = self;
                     
-                    [weakSelf.visibleVC presentViewController:editVC animated:YES completion:nil];
+                    [strongSelf.visibleVC presentViewController:editVC animated:YES completion:nil];
                 }
                 
                 // 不能编辑, 退出选择器
@@ -256,9 +256,7 @@ typedef void(^FormDataBlock)(UIImage *image, ZYFormData *formData);
                     UIAlertAction *cancelAc = [UIAlertAction actionWithTitle:ZYLocalizedStringFromTable(@"确定", @"ZYLocalizedString", nil) style:UIAlertActionStyleCancel handler:nil];
                     [alert addAction:cancelAc];
                     
-                    __weak typeof(self) weakSelf = self;
                     [picker dismissViewControllerAnimated:true completion:^{
-                        __strong typeof(weakSelf) strongSelf = weakSelf;
                         [strongSelf.visibleVC presentViewController:alert animated:true completion:nil];
                     }];
                 }
