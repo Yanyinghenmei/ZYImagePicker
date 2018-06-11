@@ -1,7 +1,8 @@
 # ZYImagePicker
 
-1. Gets the picture of the specified width.
+1. Gets the picture of specified width.
 2. Cut out rectangles or circles / ellipses.
+3. Gets the video of no more than one time.
 
 ## How to use
 Download ZYImagePicker and try out the included you iPhone project or use [CocoaPods](http://cocoapods.org).
@@ -15,7 +16,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 
 target 'TargetName' do
-pod 'ZYImagePicker', '~> 0.0.5'
+pod 'ZYImagePicker', '~> 0.1.2'
 end
 ```
 
@@ -47,6 +48,18 @@ _imagePicker = [ZYImagePicker new];
 ```objc
 [_imagePicker libraryPhotoWithController:self cropSize:CGSizeMake(200, 200) imageScale:1 isCircular:false FormDataBlock:^(UIImage *image, ZYFormData *formData) {
       // you code
+}];
+```
+
+##### Gets the video of no more than one time.
+```objc
+// from library
+[_imagePicker libraryMoiveWithController:self maximumDuration:3 formDataBlock:^(UIImage *thumbnail, ZYFormData *formData) {
+      // your code
+}];
+// from camera
+[_imagePicker cameraMoiveWithController:self maximumDuration:3 formDataBlock:^(UIImage *thumbnail, ZYFormData *formData) {
+      // your code
 }];
 ```
 
