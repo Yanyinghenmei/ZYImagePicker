@@ -40,14 +40,14 @@ _imagePicker = [ZYImagePicker new];
 ##### Gets the picture of the specified width.
 ```objc
 [_imagePicker libraryPhotoWithController:self compressWidth:320 FormDataBlock:^(UIImage *image, ZYFormData *formData) {
-      // you code
+      // your code
 }];
 ```
 
 ##### Cut out rectangles or circles / ellipses.
 ```objc
 [_imagePicker libraryPhotoWithController:self cropSize:CGSizeMake(200, 200) imageScale:1 isCircular:false FormDataBlock:^(UIImage *image, ZYFormData *formData) {
-      // you code
+      // your code
 }];
 ```
 
